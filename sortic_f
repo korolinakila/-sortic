@@ -16,3 +16,39 @@ def sb(b):
 
 def ss(a, b):
     return sa(a), sb(b)
+
+def ra(sp):
+    sp = sp[1:] + sp[:1]
+    return sp
+
+def rb(sp):
+    sp = sp[1:] + sp[:1]
+    return sp
+
+def rr(sp1,sp2):
+    sp1 = sp1[1:] + sp1[:1]
+    sp2 = sp2[1:] + sp2[:1]
+    return sp1, sp2
+
+def rra(sp):
+    sp = sp[-1:] + sp[:-1]
+    return sp
+
+def rrb(sp):
+    sp = sp[-1:] + sp[:-1]
+    return sp
+
+def rrr(sp1, sp2):
+    sp1 = rra(sp1)
+    sp2 = rrb(sp2)
+    return sp1, sp2
+
+def pa(sp1, sp2):
+    sp1.insert(0, sp2[0])
+    sp2 = sp2[1:]
+    return sp1, sp2
+
+def pb(sp1, sp2):
+    sp2.insert(0, sp1[0])
+    sp1 = sp1[1:]
+    return sp1, sp2
