@@ -52,3 +52,18 @@ def pb(sp1, sp2):
     sp2.insert(0, sp1[0])
     sp1 = sp1[1:]
     return sp1, sp2
+
+def sortic(a):
+    b = []
+    a, b = pb(a, b)
+    while len(a)!=0:
+        a,b=pb(a,b)
+        if b[0]>b[1] and b[0]>b[-1]:
+            b = rb(b)
+        if b[0]>b[1] and b[0]<b[-1]:
+            while b[0]>b[1] and b[0]<b[-1]:
+                b = rrb(b)
+                a, b = pa(a, b)
+                a = ra(a)
+            b=rb(b)
+    return b
