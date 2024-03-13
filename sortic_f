@@ -16,3 +16,13 @@ def sb(b):
 
 def ss(a, b):
     return sa(a), sb(b)
+
+def pa(sp1, sp2):
+    sp1.insert(0, sp2[0])
+    sp2 = sp2[1:]
+    return sp1, sp2
+
+def pb(sp1, sp2):
+    sp2.insert(0, sp1[0])
+    sp1 = sp1[1:]
+    return sp1, sp2
