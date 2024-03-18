@@ -80,5 +80,8 @@ def sortic(a):
                 print("ra")
             b=rb(b)
             print("rb")
+    for i in range(len(b)):
+        a=b
+        print("pa")
 
-sortic(a)
+
