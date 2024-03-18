@@ -45,8 +45,9 @@ def rrr(sp1, sp2):
     return sp1, sp2
 
 def pa(sp1, sp2):
-    sp1.insert(0, sp2[0])
-    sp2 = sp2[1:]
+    if len(sp2)!=0:
+          sp1.insert(0, sp2[0])
+          sp2 = sp2[1:]
     return sp1, sp2
 
 def pb(sp1, sp2):
@@ -54,6 +55,28 @@ def pb(sp1, sp2):
     sp1 = sp1[1:]
     return sp1, sp2
 
+def sorty(a):
+    b = []
+    if len(a) != 0:
+          a, b = pb(a, b)
+
+    while len(a)!=0:
+        a,b=pb(a,b)
+        if int(b[0])>int(b[1]) and int(b[0])>int(b[-1]):
+            b = rb(b)
+        if int(b[0])>int(b[1]) and int(b[0])<int(b[-1]):
+            while int(b[0])>int(b[1]) and int(b[0])<int(b[-1]):
+                b = rrb(b)
+                a, b = pa(a, b)
+                
+                a = ra(a)
+                
+            b=rb(b)
+            
+    for i in range(len(b)):
+        a=b
+        
+    return a
 
 def Check_sortic():
     a = []
@@ -73,12 +96,12 @@ def Check_sortic():
     while sp[i] != '*':
         c.append(sp[i])
         i = i + 1
-    z = sorted(a)
+    z = sorty(a)
     for i in range(len(c)):
         if c[i] == 'sa':
             a = sa(a)
         if c[i] == 'sb':
-            a = sb(a)
+            b = sb(b)
         if c[i] == 'ss':
             ko = ss(a,b)
             a = ko[0]
@@ -94,7 +117,7 @@ def Check_sortic():
         if c[i] == 'ra':
             a = ra(a)
         if c[i] == 'rb':
-            a = rb(a)
+            b = rb(b)
         if c[i] == 'rr':
             ko = rr(a,b)
             a = ko[0]
@@ -102,7 +125,7 @@ def Check_sortic():
         if c[i] == 'rra':
             a = rra(a)
         if c[i] == 'rrb':
-            a = rrb(a)
+            b = rrb(b)
         if c[i] == 'rrr':
             ko = rrr(a,b)
             a = ko[0]
@@ -114,6 +137,7 @@ def Check_sortic():
     else:
         print(a,z, reversed_z)
         return("KO")
+      
 def sortic():
     a = []
     c=input()
@@ -121,16 +145,18 @@ def sortic():
           a.append(c)
           c = input()
     b = []
-    a, b = pb(a, b)
-    print("pb")
+    if len(a) != 0:
+          a, b = pb(a, b)
+          print("pb")
+    
     while len(a)!=0:
         a,b=pb(a,b)
         print("pb")
-        if b[0]>b[1] and b[0]>b[-1]:
+        if int(b[0])>int(b[1]) and int(b[0])>int(b[-1]):
             b = rb(b)
             print("rb")
-        if b[0]>b[1] and b[0]<b[-1]:
-            while b[0]>b[1] and b[0]<b[-1]:
+        if int(b[0])>int(b[1]) and int(b[0])<int(b[-1]):
+            while int(b[0])>int(b[1]) and int(b[0])<int(b[-1]):
                 b = rrb(b)
                 print("rrb")
                 a, b = pa(a, b)
@@ -142,5 +168,9 @@ def sortic():
     for i in range(len(b)):
         a=b
         print("pa")
+    return a
+#print(sortic())
+print(Check_sortic())
+
 
 
